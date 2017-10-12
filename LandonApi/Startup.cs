@@ -55,7 +55,8 @@ namespace LandonApi
             // TODO: Swap out with a real database in production
             services.AddDbContext<HotelApiContext>(opt =>
             {
-                opt.UseInMemoryDatabase();
+                opt.UseSqlServer(Configuration.GetConnectionString("SecurityConnection"));
+
                 opt.UseOpenIddict();
             });
 
