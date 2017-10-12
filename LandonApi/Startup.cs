@@ -213,7 +213,12 @@ namespace LandonApi
                 Name = "Driscoll Suite",
                 Rate = 23959
             });
-
+            // checked that data is inserted to database or not
+            var insertedRoom = context.Rooms.FirstOrDefault(c => c.Id == Guid.Parse("301df04d-8679-4b1b-ab92-0a586ae53d08"));
+              if(insertedRoom != null)
+               {
+                   return;
+               }
             var oxford = context.Rooms.Add(new RoomEntity
             {
                 Id = Guid.Parse("301df04d-8679-4b1b-ab92-0a586ae53d08"),
